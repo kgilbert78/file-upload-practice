@@ -1,6 +1,6 @@
 # custom
 .env
-data/
+media/
 
 # gitignore template for VSCode: https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
 
