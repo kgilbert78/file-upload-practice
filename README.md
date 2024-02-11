@@ -13,6 +13,21 @@ Testing simplified file upload functionality to diagnose problems with adapting 
 
 Send requests to `http://localhost:8000/api/files/`
 
+To use json:
+
+- Headers:
+
+  - Content-Type: application/json
+
+- Body:
+
+  - set to raw, then select json from the dropdown to the right
+
+  - body format should be `{ "document": "~/path/to/file.pdf" }`
+
+
+To use the postman fields:
+
 - Headers:
 
   - Content-Type: multipart/form-data
