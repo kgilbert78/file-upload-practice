@@ -17,6 +17,7 @@ class FileViewSet(viewsets.ModelViewSet):
 
         new_file = File.objects.create(
             document=data["document"],
+            description=data["description"]
         )
         new_file.save()
 
