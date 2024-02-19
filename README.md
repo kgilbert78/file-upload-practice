@@ -74,3 +74,9 @@ How to fill in the Postman tabs:
   - set to raw, then select json from the dropdown to the right
 
   - body format should be `{ "document": "encoded-stuff-pasted-here" }`
+
+### Third App: keywords
+
+Created to replicate CLA DB problem with keyword data being split into one character for each keyword saved to the DB.
+
+Instructions are the same as for the First App (file_api) but with the endpoint as `http://localhost:8000/keywords/files/`
