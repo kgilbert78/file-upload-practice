@@ -11,11 +11,7 @@ class FileWithKeywordsViewSet(viewsets.ModelViewSet):
         files = FileWithKeywords.objects.all()
         return files
 
-    def add_keywords(self, keyword_data):
-        print(keyword_data)
-        # handling postman input formatted as ["keyword1", "keyword2", "keyword3"]
-        keyword_list = keyword_data.strip('"]["').split('", "')
-        print(keyword_list, type(keyword_list))
+    def add_keywords(self, keyword_list):
         # add keywords in request that aren't already in the db keywords
         for each_keyword in keyword_list:
             inDB = Keyword.objects.filter(associated_keyword=each_keyword).exists()
@@ -36,9 +32,15 @@ class FileWithKeywordsViewSet(viewsets.ModelViewSet):
         new_file.save()
 
 
-        self.add_keywords(data["keyword"])
-        
+        print(data["keyword"], type(data["keyword"]))
+
+        # handling postman input formatted as ["keyword1", "keyword2", "keyword3"]
         keyword_list = data["keyword"].strip('"]["').split('", "')
+
+        print(keyword_list, type(keyword_list))
+
+        self.add_keywords(keyword_list)
+        
         # associate the keywords to the new file by keyword text
         for each_keyword in keyword_list:
             keyword_obj = Keyword.objects.get(associated_keyword=each_keyword)
