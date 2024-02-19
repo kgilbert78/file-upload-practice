@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'file_api',
+    'base64_uploads',
 ]
 
 MIDDLEWARE = [

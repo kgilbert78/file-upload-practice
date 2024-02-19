@@ -2,7 +2,9 @@
 
 Testing simplified file upload functionality to diagnose problems with adapting CLA database to upload files
 
-### Endpoints
+## Endpoints
+
+### First App: file_api
 
 **GET:**
 
@@ -38,3 +40,37 @@ Do not use json, it submits without errors but puts the full filepath after `med
   - ~~set to raw, then select json from the dropdown to the right~~
 
   - ~~body format should be `{ "document": "~/path/to/file.pdf" }`~~
+
+### Second App: base64_uploads
+
+WORK IN PROGRESS - CURRENTLY ADDS EMPTY {} TO THE JSON LIST AND DOESN'T MOVE FILE...BUT NO ERRORS
+
+**GET:**
+
+- All files: `http://localhost:8000/base64api/files/`
+
+**POST:**
+
+Send requests to `http://localhost:8000/base64api/files/`
+
+These instructions are based on [this youtube video on base64 in postman](https://www.youtube.com/watch?v=s847Onr3IC4)
+
+How to prepare the file:
+
+- in terminal, in folder of document to encode, type `openssl base64 -in filename.ext > encoded.txt` to encode the file into a text file called encoded.
+
+- in terminal `tr --delete '\n' < encoded.txt > encoded-no-spaces.txt` to replace the new line breaks between all the lines of the encoded info.
+
+- open `encoded-no-spaces.txt` and copy the contents to paste into postman.
+
+How to fill in the Postman tabs:
+
+- Headers:
+
+  - Content-Type: application/json
+
+- Body:
+
+  - set to raw, then select json from the dropdown to the right
+
+  - body format should be `{ "document": "encoded-stuff-pasted-here" }`

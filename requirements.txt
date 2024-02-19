@@ -2,3 +2,5 @@ Django
 djangorestframework
 python-decouple
 django-cors-headers
+drf_extra_fields
+filetype
